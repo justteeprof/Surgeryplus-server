@@ -7,6 +7,13 @@ const nodemailer = require("nodemailer");
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 
+app.get("/", (req, res) => {
+    res.send("SurgeryPlus Server is running 🚀");
+});
+
+app.get("/health", (req, res) => {
+    res.json({ status: "OK", message: "Server is healthy" });
+});
 // 🔥 Firebase Admin Setup
 const serviceAccount = require("./serviceAccountKey.json");
 
